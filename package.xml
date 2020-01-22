@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>uw_robocup</name>
+  <version>0.1.0</version>
+  <description>Package for Robocup tasks.</description>
+  <maintainer email="wangx227@cs.washington.edu">Xinyi Wang</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>actionlib</depend>
+  <depend>control_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>trajectory_msgs</depend>
+  <export>
+  </export>
+</package>
