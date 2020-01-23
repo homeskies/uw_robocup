@@ -21,19 +21,22 @@ def main():
 
   # controls of Fetch
   ##### TODO: Uncomment these if nessecary
-  # arm = fetch_api.Arm()
-  # arm_joints = fetch_api.ArmJoints()
-  # torso = fetch_api.Torso()
   head = fetch_api.Head()
+  arm_joints = fetch_api.ArmJoints()
+  arm = fetch_api.Arm()
+
+  # torso = fetch_api.Torso()
+  
   fetch_gripper = fetch_api.Gripper()
   move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
   move_base_client.wait_for_server()
   rospy.sleep(0.5)
+  print "Ready to move"
 
   ########## TODO: Uncomment this
   # shutdown handler
   # def shutdown():
-    # arm.cancel_all_goals()
+  #   arm.cancel_all_goals()
   # rospy.on_shutdown(shutdown)
 
 
@@ -41,10 +44,10 @@ def main():
   goal = MoveBaseGoal()
   goal.target_pose.header.frame_id = "map"
   goal.target_pose.header.stamp = rospy.Time.now()
-  goal.target_pose.pose.position.x = 1.51860149414
-  goal.target_pose.pose.position.y = -4.3 # -3.90194324852
-  goal.target_pose.pose.orientation.z = -0.55
-  goal.target_pose.pose.orientation.w = 0.84
+  goal.target_pose.pose.position.x = 4.50320185696
+  goal.target_pose.pose.position.y = -4.2
+  goal.target_pose.pose.orientation.z = -0.554336505677
+  goal.target_pose.pose.orientation.w = 0.832292639926
 
   move_base_client.send_goal(goal)
   wait = move_base_client.wait_for_result()
@@ -60,30 +63,47 @@ def main():
   print "Head moved!"
 
   ##### TODO: write code for moving the arm to pick up the coke can
-  # pose = PoseStamped()
-  # pose.header.frame_id = 'base_link'
-  # pose.pose.position.x = 0.8
-  # pose.pose.position.y = 0
-  # pose.pose.position.z = 0.75
-  # pose.pose.orientation.w = 1
+  pose = PoseStamped()
+  pose.header.frame_id = 'base_link'
+  pose.pose.position.x = 0.8
+  pose.pose.position.y = 0
+  pose.pose.position.z = 0.75
+  pose.pose.orientation.w = 1
+  # arm.move_to_pose(pose)
+  # print "arm moved"
 
-  # kwargs = {
-  #     'allowed_planning_time': 100,
-  #     'execution_timeout': 100,
-  #     'num_planning_attempts': 1,
-  #     'replan_attempts': 5,
-  #     'replan': True,
-  #     'orientation_constraint': None
-  # }
+### MOVE ARM TO 
+  kwargs = {
+      'allowed_planning_time': 20,
+      'execution_timeout': 20,
+      'num_planning_attempts': 1,
+      'replan_attempts': 5,
+      'replan': True,
+      'orientation_constraint': None
+  }
 
-  # error = arm.move_to_pose(pose, **kwargs)
-  # if error is not None:
-  #     rospy.logerr('Pose failed: {}'.format(error))
-  # else:
-  #     rospy.loginfo('Pose succeeded')
-  #     print "Arm moved!"
+  error = arm.move_to_pose(pose, **kwargs)
+  if error is not None:
+      rospy.logerr('Pose failed: {}'.format(error))
+  else:
+      rospy.loginfo('Pose succeeded')
+      print "Arm moved!"
 
 
+  pose = PoseStamped()
+  pose.header.frame_id = 'base_link'
+  pose.pose.position.x = 0.5
+  pose.pose.position.y = 0
+  pose.pose.position.z = 0.4
+  pose.pose.orientation.w = 1
+  error = arm.move_to_pose(pose, **kwargs)
+  if error is not None:
+      rospy.logerr('Pose failed: {}'.format(error))
+  else:
+      rospy.loginfo('Pose succeeded')
+      print "Arm moved!"
+
+#TODO:uncomment
   # move base to the position near the shelf
   goal = MoveBaseGoal()
   goal.target_pose.header.frame_id = "map"
