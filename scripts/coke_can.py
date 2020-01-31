@@ -1,28 +1,13 @@
 #! /usr/bin/env python
 
 import rospy
-import fetch_api
-from gazebo_msgs.srv import SetModelState
-from gazebo_msgs.msg import ModelState
 from geometry_msgs.msg import PoseStamped, Pose, Vector3, PoseWithCovarianceStamped
 from moveit_msgs.msg import OrientationConstraint
 import actionlib
 from std_msgs.msg import Header, ColorRGBA
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseActionGoal
 from visualization_msgs.msg import Marker
-
-
-def teleport(rviz, gazebo, pose):
-  pose_w = PoseWithCovarianceStamped()
-  pose_w.pose.pose = pose
-  pose_w.pose.covariance = [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06853892326654787]
-  pose_w.header = Header(stamp=rospy.Time.now(), frame_id="map")
-  rviz.publish(pose_w)
-  model = ModelState()
-  model.model_name = "fetch"
-  model.pose = pose
-  gazebo(model)
-
+import fetch_api
 
 def wait_for_time():
   """
@@ -42,16 +27,8 @@ def main():
   arm_joints = fetch_api.ArmJoints()
   arm = fetch_api.Arm()
   gripper = fetch_api.Gripper()
+  teleport = fetch_api.Teleport()
   # torso = fetch_api.Torso()
-  
-  set_rviz = rospy.Publisher("initialpose", PoseWithCovarianceStamped, queue_size=10)
-  rospy.wait_for_service("/gazebo/set_model_state")
-  try:
-    set_gazebo = rospy.ServiceProxy("/gazebo/set_model_state", SetModelState)
-  except:
-    print("Service call failed")
-
-
 
   fetch_gripper = fetch_api.Gripper()
   move_base_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
@@ -102,7 +79,7 @@ def main():
   marker_pub.publish(marker)
 
   move_base_client.send_goal(goal)
-  teleport(set_rviz, set_gazebo, pose)
+  teleport.move_to_pose(pose)
 
   wait = move_base_client.wait_for_result()
   if not wait:
@@ -170,7 +147,7 @@ def main():
 ## Move to Shelf
 
   move_base_pub.publish(pose2)
-  teleport(set_rviz, set_gazebo, pose2.pose)
+  teleport.move_to_pose(pose2.pose)
 
   gripper.open()
 
