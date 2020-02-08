@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>common_states</name>
+  <version>1.0.0</version>
+  <description>
+    Shared, reusable states for robot capabilities
+  </description>
+  <license>MIT</license>
+  <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
+  <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>knowledge_representation</exec_depend>
+  <exec_depend>fetch_api</exec_depend>
+  <exec_depend>rospy</exec_depend>
+
+</package>
