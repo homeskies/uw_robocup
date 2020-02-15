@@ -1,6 +1,3 @@
-import rospy
-
-
 def execute(self, inputs, outputs, gvm):
     base, _ = gvm.get_variable("robot")
     ltmc = gvm.get_variable("knowledgebase")

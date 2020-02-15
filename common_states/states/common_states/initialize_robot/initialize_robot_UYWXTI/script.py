@@ -2,7 +2,6 @@ from fetch_api import Base, Arm
 import knowledge_representation
 import rospy
 import tf
-import time
 import traceback
 
 
