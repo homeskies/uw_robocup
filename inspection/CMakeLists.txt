@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(inspection)
 
-find_package(catkin REQUIRED
+find_package(catkin REQUIRED COMPONENTS
 roslint
 )
 
-
-catkin_python_setup()
-
-
 catkin_package(
 )
+
+catkin_python_setup()
 
 catkin_add_env_hooks(${PROJECT_NAME} SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
