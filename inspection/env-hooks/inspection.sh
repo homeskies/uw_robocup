@@ -1,0 +1,1 @@
+export RAFCON_LIBRARY_PATH=$(rospack find inspection)/states/inspection:$RAFCON_LIBRARY_PATH

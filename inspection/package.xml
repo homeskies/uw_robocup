@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>inspection</name>
+  <version>1.0.0</version>
+  <description>
+    Code for the RoboCup@Home inspection task
+  </description>
+  <license>MIT</license>
+  <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
+  <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
+
+  <build_depend>roslint</build_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>common_states</exec_depend>
+  <exec_depend>rospy</exec_depend>
+
+</package>
