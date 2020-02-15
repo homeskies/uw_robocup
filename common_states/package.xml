@@ -10,8 +10,8 @@
   <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <exec_depend>knowledge_representation</exec_depend>
   <exec_depend>fetch_api</exec_depend>
+  <exec_depend>knowledge_representation</exec_depend>
   <exec_depend>rospy</exec_depend>
 
 </package>
