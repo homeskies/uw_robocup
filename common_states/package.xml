@@ -13,6 +13,8 @@
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>fetch_api</exec_depend>
   <exec_depend>knowledge_representation</exec_depend>
+  <exec_depend>rafcon-pip</exec_depend>
   <exec_depend>rospy</exec_depend>
+  <exec_depend>soundplay</exec_depend>
 
 </package>

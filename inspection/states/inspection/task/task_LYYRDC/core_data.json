@@ -6,7 +6,7 @@
         "__jsonqualname__": "rafcon.core.state_elements.logical_port.Income"
     }, 
     "input_data_ports": {}, 
-    "name": "task",
+    "name": "task", 
     "outcomes": {
         "-2": {
             "__jsonqualname__": "rafcon.core.state_elements.logical_port.Outcome", 
@@ -99,6 +99,14 @@
             "to_outcome": null, 
             "to_state": "HSXLFF", 
             "transition_id": 9
+        }, 
+        "10": {
+            "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
+            "from_outcome": -1, 
+            "from_state": "ODRLQU", 
+            "to_outcome": null, 
+            "to_state": "JLWMTF", 
+            "transition_id": 10
         }
     }
 }

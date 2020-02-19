@@ -17,5 +17,5 @@ def execute(self, inputs, outputs, gvm):
             rospy.logerr('Could not connect to sound play node!')
             return -1
 
-    soundhandle.say(inputs["text"], VOICE)
+    soundhandle.say(inputs["script"], VOICE)
     return 0
