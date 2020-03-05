@@ -1,4 +1,4 @@
-from fetch_api import Base, Arm
+from fetch_api import Base, Arm, Gripper
 import knowledge_representation
 import rospy
 import tf
@@ -32,7 +32,7 @@ def execute(self, inputs, outputs, gvm):
             self.logger.info("Creating node: " + str(listener))
             gvm.set_variable("tf_listener", listener, per_reference=True)
 
-            fetch = (Base(), Arm())
+            fetch = (Base(), Arm(), Gripper())
             gvm.set_variable("robot", fetch, per_reference=True)
             ltmc = knowledge_representation.get_default_ltmc()
             gvm.set_variable("knowledgebase", ltmc, per_reference=True)
