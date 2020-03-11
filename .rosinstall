@@ -4,6 +4,7 @@
 - git:
     local-name: realsense_ros
     uri: https://github.com/IntelRealSense/realsense-ros.git
+    version: 2.2.12
 - git:
     local-name: uw_common
     uri: https://github.com/homeskies/uw_common.git
