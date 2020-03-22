@@ -1,20 +1,19 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>common_states</name>
+  <name>inspection</name>
   <version>1.0.0</version>
   <description>
-    Shared, reusable states for robot capabilities
+    Code for the RoboCup@Home inspection task
   </description>
   <license>MIT</license>
   <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
   <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
 
   <build_depend>roslint</build_depend>
+
   <buildtool_depend>catkin</buildtool_depend>
-  <exec_depend>fetch_api</exec_depend>
-  <exec_depend>knowledge_representation</exec_depend>
+  <exec_depend>common_states</exec_depend>
   <exec_depend>python3-rafcon-pip</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <exec_depend>sound_play</exec_depend>
 
 </package>

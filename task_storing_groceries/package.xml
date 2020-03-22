@@ -9,7 +9,10 @@
   <maintainer email="robocup@cs.washington.edu">UW RoboCup Contributors</maintainer>
   <author email="robocup@cs.washington.edu">UW RoboCup Contributors</author>
 
+  <build_depend>roslint</build_depend>
+
   <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>python3-rafcon-pip</exec_depend>
   <exec_depend>rospy</exec_depend>
 
 </package>
