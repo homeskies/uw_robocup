@@ -20,8 +20,8 @@
             "rel_pos": {
                 "__jsonqualname__": "__builtin__.tuple", 
                 "items": [
-                    18.88042814967535, 
-                    51.34138466624929
+                    17.263845767921385, 
+                    54.21157596161254
                 ]
             }, 
             "size": {
@@ -32,7 +32,7 @@
                 ]
             }
         }, 
-        "show_content": {}
+        "show_content": true
     }, 
     "income": {
         "gui": {

@@ -1,6 +1,8 @@
 {
     "__jsonqualname__": "rafcon.core.states.library_state.LibraryState", 
-    "input_data_port_runtime_values": {}, 
+    "input_data_port_runtime_values": {
+        "0": null
+    }, 
     "library_name": "move_arm", 
     "library_path": "common_states", 
     "name": "move arm to object", 
@@ -23,7 +25,9 @@
     }, 
     "output_data_port_runtime_values": {}, 
     "state_id": "XVVPAR", 
-    "use_runtime_value_input_data_ports": {}, 
+    "use_runtime_value_input_data_ports": {
+        "0": true
+    }, 
     "use_runtime_value_output_data_ports": {}, 
     "version": "0.1"
 }

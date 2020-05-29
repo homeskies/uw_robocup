@@ -1,11 +1,20 @@
 {
-    "__jsonqualname__": "rafcon.core.states.hierarchy_state.HierarchyState", 
-    "data_flows": {}, 
+    "__jsonqualname__": "rafcon.core.states.execution_state.ExecutionState", 
     "description": null, 
     "income": {
         "__jsonqualname__": "rafcon.core.state_elements.logical_port.Income"
     }, 
-    "input_data_ports": {}, 
+    "input_data_ports": {
+        "0": {
+            "__jsonqualname__": "rafcon.core.state_elements.data_port.InputDataPort", 
+            "data_port_id": 0, 
+            "data_type": {
+                "__type__": "__builtin__.list"
+            }, 
+            "default_value": null, 
+            "name": "objs"
+        }
+    }, 
     "name": "move_arm", 
     "outcomes": {
         "-2": {
@@ -25,7 +34,5 @@
         }
     }, 
     "output_data_ports": {}, 
-    "scoped_variables": {}, 
-    "state_id": "ZFOIXZ", 
-    "transitions": {}
+    "state_id": "ZFOIXZ"
 }

@@ -1,4 +1,4 @@
-from fetch_api import Base, Arm, Gripper
+from fetch_api import Base, Arm, Gripper, GraspingClient, Torso, Head
 import knowledge_representation
 import rospy
 import tf
@@ -12,7 +12,6 @@ def execute(self, inputs, outputs, gvm):
     except Exception as e:
         self.logger.error("Exception: " + str(e) + str(traceback.format_exc()))
         return -1
-
     if "node_name" in inputs:
         node_name = inputs["node_name"]
     else:
@@ -31,9 +30,17 @@ def execute(self, inputs, outputs, gvm):
             listener = tf.TransformListener()
             self.logger.info("Creating node: " + str(listener))
             gvm.set_variable("tf_listener", listener, per_reference=True)
+            grasp_cli = GraspingClient()
+            self.logger.info("tucking arm")
+            grasp_cli.tuck()
+            torso = Torso()
+            self.logger.info("lowering torso")
+            torso.set_height(0)
 
-            fetch = (Base(), Arm(), Gripper())
+            fetch = (Base(), Arm(), Gripper(), grasp_cli, Head(), torso)
+
             gvm.set_variable("robot", fetch, per_reference=True)
+            gvm.set_variable("rospy", rospy, per_reference = True)
             ltmc = knowledge_representation.get_default_ltmc()
             gvm.set_variable("knowledgebase", ltmc, per_reference=True)
     except Exception as e:

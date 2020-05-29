@@ -1,0 +1,1 @@
+{'header': {'frame_id': 'base_link'},'pose': {'position': {'x': 0.5,'y': 0,'z': 0.4},'orientation': {'w': 1}}}

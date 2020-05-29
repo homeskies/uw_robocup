@@ -32,7 +32,7 @@
                 ]
             }
         }, 
-        "show_content": {}
+        "show_content": true
     }, 
     "income": {
         "gui": {
@@ -53,7 +53,7 @@
                 "rel_pos": {
                     "__jsonqualname__": "__builtin__.tuple", 
                     "items": [
-                        0, 
+                        0.3858415892521089, 
                         17.3628715163449
                     ]
                 }

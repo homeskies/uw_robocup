@@ -1,5 +1,5 @@
 def execute(self, inputs, outputs, gvm):
-    base, _ = gvm.get_variable("robot")
+    base, _, _ = gvm.get_variable("robot")
     ltmc = gvm.get_variable("knowledgebase")
     map = ltmc.get_map("arena")
     pose = map.get_pose(inputs["poi_name"])

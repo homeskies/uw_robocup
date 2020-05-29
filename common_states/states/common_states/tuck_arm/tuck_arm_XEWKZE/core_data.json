@@ -1,6 +1,5 @@
 {
-    "__jsonqualname__": "rafcon.core.states.hierarchy_state.HierarchyState", 
-    "data_flows": {}, 
+    "__jsonqualname__": "rafcon.core.states.execution_state.ExecutionState", 
     "description": null, 
     "income": {
         "__jsonqualname__": "rafcon.core.state_elements.logical_port.Income"
@@ -25,7 +24,5 @@
         }
     }, 
     "output_data_ports": {}, 
-    "scoped_variables": {}, 
-    "state_id": "XEWKZE", 
-    "transitions": {}
+    "state_id": "XEWKZE"
 }

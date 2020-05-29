@@ -98,5 +98,18 @@
                 }
             }
         }
+    }, 
+    "output_data_port1": {
+        "gui": {
+            "editor_gaphas": {
+                "rel_pos": {
+                    "__jsonqualname__": "__builtin__.tuple", 
+                    "items": [
+                        18.906237873353334, 
+                        17.3628715163449
+                    ]
+                }
+            }
+        }
     }
 }

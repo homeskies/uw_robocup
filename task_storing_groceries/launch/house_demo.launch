@@ -1,0 +1,19 @@
+<launch>
+  <!-- Start MoveIt -->
+  <include file="$(find fetch_moveit_config)/launch/move_group.launch" >
+    <arg name="info" value="true"/>publish grasp markers >
+  </include>
+
+  <!-- Start Perception -->
+  <node name="basic_grasping_perception" pkg="simple_grasping" type="basic_grasping_perception" >
+    <rosparam command="load" file="$(find task_storing_groceries)/config/simple_grasping.yaml" />
+  </node>
+  <node name="coke_can" pkg="uw_gazebo" type="add_coke" output="screen"/>
+  <!-- Drive to the table, pick stuff up -->
+  <!-- <node name="script" pkg="fetch_gazebo_demo" type="script.py" output="screen"/> -->
+  <!-- <node name="demo" pkg="task_storing_groceries" type="demo.py" output="screen" /> -->
+  <rosparam>
+    /move_base/local_costmap/inflater/inflation_radius: .3
+    /move_base/global_costmap/inflater/inflation_radius: .3
+  </rosparam>
+</launch>
