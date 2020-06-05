@@ -1,4 +1,5 @@
-from fetch_api import Base, Arm, Gripper, GraspingClient, Torso, Head
+from fetch_api import Base, Arm, Gripper, Torso, Head
+from uw_manipulation import GraspingClient
 import knowledge_representation
 import rospy
 import tf
@@ -30,15 +31,14 @@ def execute(self, inputs, outputs, gvm):
             listener = tf.TransformListener()
             self.logger.info("Creating node: " + str(listener))
             gvm.set_variable("tf_listener", listener, per_reference=True)
-            grasp_cli = GraspingClient()
+            arm = Arm()
             self.logger.info("tucking arm")
-            grasp_cli.tuck()
+            arm.tuck()
             torso = Torso()
             self.logger.info("lowering torso")
             torso.set_height(0)
-
-            fetch = (Base(), Arm(), Gripper(), grasp_cli, Head(), torso)
-
+        
+            fetch = (Base(), arm, Gripper(), GraspingClient(), Head(), torso)
             gvm.set_variable("robot", fetch, per_reference=True)
             gvm.set_variable("rospy", rospy, per_reference = True)
             ltmc = knowledge_representation.get_default_ltmc()
