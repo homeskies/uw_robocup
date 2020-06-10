@@ -1,3 +1,4 @@
-if [[ ":$RAFCON_LIBRARY_PATH:" != *":$(rospack find task_storing_groceries)/states/task_storing_groceries:"* ]]; then
-  export RAFCON_LIBRARY_PATH="$(rospack find task_storing_groceries)/states/task_storing_groceries:$RAFCON_LIBRARY_PATH"
-fi
+states_path="$(rospack find task_storing_groceries)/states/task_storing_groceries"
+# Add to library path if not already present
+echo "$RAFCON_LIBRARY_PATH" | grep -q "$states_path" \
+|| export RAFCON_LIBRARY_PATH="$states_path:$RAFCON_LIBRARY_PATH"
