@@ -22,3 +22,8 @@ roslint_python(${${PROJECT_NAME}_PY_SRC})
 file(GLOB_RECURSE ${PROJECT_NAME}_PY_STATES
         RELATIVE ${PROJECT_SOURCE_DIR} states/${PROJECT_NAME}/**/*.py)
 roslint_python(${${PROJECT_NAME}_PY_STATES})
+
+### TEST TARGETS
+if(CATKIN_ENABLE_TESTING)
+    # catkin_add_nosetests(test/test.py)
+endif()

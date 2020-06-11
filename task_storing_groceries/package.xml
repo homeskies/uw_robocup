@@ -16,4 +16,6 @@
   <exec_depend>common_states</exec_depend>
   <exec_depend>rafcon-pip</exec_depend>
   <exec_depend>rospy_message_converter</exec_depend>
+
+  <test_depend>rosunit</test_depend>
 </package>
