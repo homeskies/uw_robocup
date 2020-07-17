@@ -1,3 +1,3 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
 rafcon_core -o $(rospack find task_storing_groceries)/states/task_storing_groceries/task
