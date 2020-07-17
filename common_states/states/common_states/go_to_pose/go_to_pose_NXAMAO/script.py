@@ -1,7 +1,6 @@
 import json
-from geometry_msgs.msg import PoseStamped
-from collections import namedtuple
 from rospy_message_converter import json_message_converter
+
 
 def execute(self, inputs, outputs, gvm):
     fetch = gvm.get_variable("robot")
@@ -18,6 +17,7 @@ def execute(self, inputs, outputs, gvm):
     except Exception as e:
         self.logger.error(e)
         return "aborted"
+
 
 if __name__ == "__main__":
     inputs = {"pose": '{\
@@ -45,5 +45,3 @@ if __name__ == "__main__":
     #     json.load(io)
 
     execute(None, inputs, None, None)
-
-

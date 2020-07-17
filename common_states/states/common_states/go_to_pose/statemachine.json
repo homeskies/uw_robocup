@@ -1,7 +1,7 @@
 {
     "creation_time": "2020-03-05 00:19:30", 
-    "last_update": "2020-04-30 08:57:43", 
-    "root_state_storage_id": "nav_goal_NXAMAO", 
+    "last_update": "2020-06-10 22:30:56", 
+    "root_state_storage_id": "go_to_pose_NXAMAO", 
     "state_machine_version": null, 
     "used_rafcon_version": "0.14.2"
 }

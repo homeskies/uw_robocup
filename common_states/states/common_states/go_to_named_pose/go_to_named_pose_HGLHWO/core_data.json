@@ -12,10 +12,10 @@
                 "__type__": "__builtin__.str"
             }, 
             "default_value": null, 
-            "name": "poi_name"
+            "name": "pose_name"
         }
     }, 
-    "name": "go_to_named_poi", 
+    "name": "go_to_named_pose", 
     "outcomes": {
         "-2": {
             "__jsonqualname__": "rafcon.core.state_elements.logical_port.Outcome", 

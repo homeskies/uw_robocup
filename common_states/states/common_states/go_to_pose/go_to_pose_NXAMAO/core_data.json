@@ -15,7 +15,7 @@
             "name": "pose"
         }
     }, 
-    "name": "nav_goal", 
+    "name": "go_to_pose", 
     "outcomes": {
         "-2": {
             "__jsonqualname__": "rafcon.core.state_elements.logical_port.Outcome", 
