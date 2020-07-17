@@ -1,23 +1,24 @@
+import rospy
+
 
 def execute(self, inputs, outputs, gvm):
     fetch = gvm.get_variable("robot")
-    rospy = gvm.get_variable("rospy")
-    head = fetch[4]
-    grasp_cli = fetch[3]
-    torso = fetch[5]
-    look = inputs["look"]
-    head.look_at("map", look["x"], look["y"], look["w"])
+    grasp_cli = gvm.get_variable("grasping_client")
+    head = fetch[3]
+    torso = fetch[4]
+    # Assume we're in front of a surface to scan
+    # Tilt head down
+    head.pan_tilt(0, 1.0)
     self.logger.info("looked at object")
     self.logger.info("raising torso")
     torso.set_height(.4)
-    while not rospy.is_shutdown():
-        self.logger.info("Picking object...")
-        grasp_cli.updateScene()
-        coke, grasps = grasp_cli.getGraspableCube()
-        if coke == None:
-            self.logger.warn("Perception failed.")
-            continue
-        else:
-            outputs["objs"] = [coke, grasps]
-            return "success"
+
+    self.logger.info("Selecting object...")
+    grasp_cli.update_scene()
+    coke, grasps = grasp_cli.get_graspable_cube()
+    if coke is None:
+        self.logger.warn("Perception failed.")
+    else:
+        outputs["objs"] = [coke, grasps]
+        return "success"
     return "aborted"
