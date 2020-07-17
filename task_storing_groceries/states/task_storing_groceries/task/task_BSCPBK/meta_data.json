@@ -1,8 +1,5 @@
 {
     "data_flow1": {}, 
-    "data_flow2": {}, 
-    "data_flow3": {}, 
-    "data_flow8": {}, 
     "gui": {
         "editor_gaphas": {
             "name": {
@@ -84,45 +81,6 @@
                     "items": [
                         238.451303383805, 
                         10.0
-                    ]
-                }
-            }
-        }
-    }, 
-    "scoped_variable0": {
-        "gui": {
-            "editor_gaphas": {
-                "rel_pos": {
-                    "__jsonqualname__": "__builtin__.tuple", 
-                    "items": [
-                        28.31413921824229, 
-                        110.80089261658486
-                    ]
-                }
-            }
-        }
-    }, 
-    "scoped_variable1": {
-        "gui": {
-            "editor_gaphas": {
-                "rel_pos": {
-                    "__jsonqualname__": "__builtin__.tuple", 
-                    "items": [
-                        36.977746054513354, 
-                        110.80089261658486
-                    ]
-                }
-            }
-        }
-    }, 
-    "scoped_variable2": {
-        "gui": {
-            "editor_gaphas": {
-                "rel_pos": {
-                    "__jsonqualname__": "__builtin__.tuple", 
-                    "items": [
-                        54.37903831546082, 
-                        110.80089261658486
                     ]
                 }
             }
@@ -225,6 +183,28 @@
         "gui": {
             "editor_gaphas": {
                 "waypoints": []
+            }
+        }
+    }, 
+    "transition6": {
+        "gui": {
+            "editor_gaphas": {
+                "waypoints": [
+                    {
+                        "__jsonqualname__": "__builtin__.tuple", 
+                        "items": [
+                            99.38762416435978, 
+                            33.6982090901411
+                        ]
+                    }, 
+                    {
+                        "__jsonqualname__": "__builtin__.tuple", 
+                        "items": [
+                            76.23712880923324, 
+                            33.6982090901411
+                        ]
+                    }
+                ]
             }
         }
     }, 

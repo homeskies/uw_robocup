@@ -8,30 +8,6 @@
             "from_state": "SYIIEQ", 
             "to_key": 0, 
             "to_state": "XVVPAR"
-        }, 
-        "2": {
-            "__jsonqualname__": "rafcon.core.state_elements.data_flow.DataFlow", 
-            "data_flow_id": 2, 
-            "from_key": 2, 
-            "from_state": "BSCPBK", 
-            "to_key": 0, 
-            "to_state": "SMMJDG"
-        }, 
-        "3": {
-            "__jsonqualname__": "rafcon.core.state_elements.data_flow.DataFlow", 
-            "data_flow_id": 3, 
-            "from_key": 1, 
-            "from_state": "BSCPBK", 
-            "to_key": 0, 
-            "to_state": "SYIIEQ"
-        }, 
-        "8": {
-            "__jsonqualname__": "rafcon.core.state_elements.data_flow.DataFlow", 
-            "data_flow_id": 8, 
-            "from_key": 0, 
-            "from_state": "BSCPBK", 
-            "to_key": 0, 
-            "to_state": "ETWUSW"
         }
     }, 
     "description": null, 
@@ -58,39 +34,7 @@
         }
     }, 
     "output_data_ports": {}, 
-    "scoped_variables": {
-        "0": {
-            "__jsonqualname__": "rafcon.core.state_elements.scope.ScopedVariable", 
-            "data_port_id": 0, 
-            "data_type": {
-                "__type__": "__builtin__.str"
-            }, 
-            "default_value": "{\"header\":{\"frame_id\":\"base_link\"},\"pose\":{\"position\":{\"x\":1.13,\"y\":-4.35,\"z\":0},\"orientation\":{\"w\":1}}}", 
-            "name": "pose"
-        }, 
-        "1": {
-            "__jsonqualname__": "rafcon.core.state_elements.scope.ScopedVariable", 
-            "data_port_id": 1, 
-            "data_type": {
-                "__type__": "__builtin__.dict"
-            }, 
-            "default_value": {
-                "w": 1, 
-                "x": 1.13, 
-                "y": -4.35
-            }, 
-            "name": "look"
-        }, 
-        "2": {
-            "__jsonqualname__": "rafcon.core.state_elements.scope.ScopedVariable", 
-            "data_port_id": 2, 
-            "data_type": {
-                "__type__": "__builtin__.str"
-            }, 
-            "default_value": "{\"header\":{\"frame_id\":\"base_link\"},\"pose\":{\"position\":{\"x\":3.678519,\"y\":-4.210,\"z\":0},\"orientation\":{\"w\":1}}}", 
-            "name": "shelf_pose"
-        }
-    }, 
+    "scoped_variables": {}, 
     "state_id": "BSCPBK", 
     "transitions": {
         "1": {
@@ -98,7 +42,7 @@
             "from_outcome": 0, 
             "from_state": "YXDXVD", 
             "to_outcome": null, 
-            "to_state": "ETWUSW", 
+            "to_state": "PJYBST", 
             "transition_id": 1
         }, 
         "2": {
@@ -133,6 +77,14 @@
             "to_state": "SYIIEQ", 
             "transition_id": 5
         }, 
+        "6": {
+            "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
+            "from_outcome": -1, 
+            "from_state": "SYIIEQ", 
+            "to_outcome": null, 
+            "to_state": "SYIIEQ", 
+            "transition_id": 6
+        }, 
         "7": {
             "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
             "from_outcome": null, 
@@ -144,7 +96,7 @@
         "14": {
             "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
             "from_outcome": 0, 
-            "from_state": "ETWUSW", 
+            "from_state": "PJYBST", 
             "to_outcome": null, 
             "to_state": "SYIIEQ", 
             "transition_id": 14
@@ -162,13 +114,13 @@
             "from_outcome": 0, 
             "from_state": "MCGMRN", 
             "to_outcome": null, 
-            "to_state": "SMMJDG", 
+            "to_state": "PLSQCJ", 
             "transition_id": 20
         }, 
         "21": {
             "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
             "from_outcome": 0, 
-            "from_state": "SMMJDG", 
+            "from_state": "PLSQCJ", 
             "to_outcome": 0, 
             "to_state": "BSCPBK", 
             "transition_id": 21
@@ -176,9 +128,9 @@
         "22": {
             "__jsonqualname__": "rafcon.core.state_elements.transition.Transition", 
             "from_outcome": -1, 
-            "from_state": "SMMJDG", 
+            "from_state": "PLSQCJ", 
             "to_outcome": null, 
-            "to_state": "SMMJDG", 
+            "to_state": "PLSQCJ", 
             "transition_id": 22
         }
     }

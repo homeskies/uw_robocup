@@ -47,6 +47,45 @@
             }
         }
     }, 
+    "input_data_port0": {
+        "gui": {
+            "editor_gaphas": {
+                "rel_pos": {
+                    "__jsonqualname__": "__builtin__.tuple", 
+                    "items": [
+                        0, 
+                        18.0
+                    ]
+                }
+            }
+        }
+    }, 
+    "input_data_port1": {
+        "gui": {
+            "editor_gaphas": {
+                "rel_pos": {
+                    "__jsonqualname__": "__builtin__.tuple", 
+                    "items": [
+                        0, 
+                        16.4
+                    ]
+                }
+            }
+        }
+    }, 
+    "input_data_port2": {
+        "gui": {
+            "editor_gaphas": {
+                "rel_pos": {
+                    "__jsonqualname__": "__builtin__.tuple", 
+                    "items": [
+                        0, 
+                        14.799999999999999
+                    ]
+                }
+            }
+        }
+    }, 
     "outcome-1": {
         "gui": {
             "editor_gaphas": {
