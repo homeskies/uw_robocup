@@ -1,7 +1,5 @@
 def execute(self, inputs, outputs, gvm):
-    fetch = gvm.get_variable("robot")
-    rospy = gvm.get_variable("rospy")
-    grasp_cli = fetch[3]
+    grasp_cli = gvm.get_variable("grasp_client")
     objs = inputs["objs"]
     coke = objs[0]
     grasps = objs[1]
@@ -13,4 +11,3 @@ def execute(self, inputs, outputs, gvm):
         self.logger.warn("grasp failed")
         grasp_cli.tuck()
         return "aborted"
-   

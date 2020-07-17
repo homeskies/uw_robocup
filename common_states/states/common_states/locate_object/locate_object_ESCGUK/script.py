@@ -1,9 +1,6 @@
-import rospy
-
-
 def execute(self, inputs, outputs, gvm):
     fetch = gvm.get_variable("robot")
-    grasp_cli = gvm.get_variable("grasping_client")
+    grasp_cli = gvm.get_variable("grasp_client")
     head = fetch[3]
     torso = fetch[4]
     # Assume we're in front of a surface to scan

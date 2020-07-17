@@ -1,9 +1,7 @@
 #!/usr/bin/env python
-import sys
 import unittest
 from rafcon.core.start import open_state_machine, setup_configuration
 import rospkg
-import os
 
 # A work around for missing libraries prompting user interaction
 # https://github.com/DLR-RM/RAFCON/issues/838
@@ -41,7 +39,7 @@ class TestStateMachine(unittest.TestCase):
     def setUp(self):
         self.sm = open_state_machine(rospack.get_path('task_storing_groceries') + "/states/task_storing_groceries/task")
 
-    def testLoads(self):
+    def test_loads(self):
         self.assertTrue(self.sm)
         self.assertEqual([], get_missing_states(self.sm.root_state))
 

@@ -5,6 +5,41 @@ import tf
 import traceback
 
 
+def load_robot_objects(logger, inputs, gvm):
+    # We can reload all of the robot API objects though
+    listener = tf.TransformListener()
+    gvm.set_variable("tf_listener", listener, per_reference=True)
+    arm = Arm()
+    logger.info("tucking arm")
+    arm.tuck()
+    torso = Torso()
+    logger.info("lowering torso")
+    torso.set_height(0)
+    logger.info("done")
+    if inputs["use_manipulation"]:
+        from uw_manipulation import GraspingClient
+        grasping_client = GraspingClient()
+    else:
+        grasping_client = None
+    fetch = (Base(), arm, Gripper(), Head(), torso)
+    gvm.set_variable("robot", fetch, per_reference=True)
+    gvm.set_variable("grasp_client", grasping_client, per_reference=True)
+    ltmc = knowledge_representation.get_default_ltmc()
+    gvm.set_variable("knowledgebase", ltmc, per_reference=True)
+    map = ltmc.get_map(inputs["map_name"])
+    if map is None:
+        raise RuntimeError("Couldn't load map {}".format(inputs["map_name"]))
+    # TODO(nickswalker): Expose this as a parameter
+    gvm.set_variable("map", ltmc.get_map("map"), per_reference=True)
+
+    # For now, this single switch serves to signal any special Gazebo-specific hacks
+    # or accelerations across other states.
+    in_simulation = rospy.get_param("use_sim_time")
+    gvm.set_variable("simulation", in_simulation)
+    if in_simulation:
+        logger.info("Running with simulation flag")
+
+
 def execute(self, inputs, outputs, gvm):
     if rospy.is_shutdown():
         # Reinitializing a ROS node isn't allowed. If the node gets shutdown and you're
@@ -35,38 +70,7 @@ def execute(self, inputs, outputs, gvm):
             gvm.set_variable("ros_node_initialized", True)
             rospy.init_node(node_name, disable_signals=True)
 
-        # We can reload all of the robot API objects though
-        listener = tf.TransformListener()
-        gvm.set_variable("tf_listener", listener, per_reference=True)
-        arm = Arm()
-        self.logger.info("tucking arm")
-        arm.tuck()
-        torso = Torso()
-        self.logger.info("lowering torso")
-        torso.set_height(0)
-        self.logger.info("done")
-        if inputs["use_manipulation"]:
-            from uw_manipulation import GraspingClient
-            grasping_client = GraspingClient()
-        else:
-            grasping_client = None
-        fetch = (Base(), arm, Gripper(), Head(), torso)
-        gvm.set_variable("robot", fetch, per_reference=True)
-        gvm.set_variable("grasping_client", grasping_client, per_reference=True)
-        ltmc = knowledge_representation.get_default_ltmc()
-        gvm.set_variable("knowledgebase", ltmc, per_reference=True)
-        map = ltmc.get_map(inputs["map_name"])
-        if map is None:
-            raise RuntimeError("Couldn't load map {}".format(inputs["map_name"]))
-        # TODO(nickswalker): Expose this as a parameter
-        gvm.set_variable("map", ltmc.get_map("map"), per_reference=True)
-
-        # For now, this single switch serves to signal any special Gazebo-specific hacks
-        # or accelerations across other states.
-        in_simulation = rospy.get_param("use_sim_time")
-        gvm.set_variable("simulation", in_simulation)
-        if in_simulation:
-            self.logger.info("Running with simulation flag")
+        load_robot_objects(self.logger, inputs, gvm)
     except Exception as e:
         self.logger.error("Unexpected error:" + str(e) + str(traceback.format_exc()))
 
