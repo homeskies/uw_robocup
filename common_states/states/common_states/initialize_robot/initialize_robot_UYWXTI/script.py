@@ -10,12 +10,8 @@ def load_robot_objects(logger, inputs, gvm):
     listener = tf.TransformListener()
     gvm.set_variable("tf_listener", listener, per_reference=True)
     arm = Arm()
-    logger.info("tucking arm")
-    arm.tuck()
     torso = Torso()
-    logger.info("lowering torso")
-    torso.set_height(0)
-    logger.info("done")
+
     if inputs["use_manipulation"]:
         from uw_manipulation import GraspingClient
         grasping_client = GraspingClient()

@@ -1,5 +1,9 @@
 def execute(self, inputs, outputs, gvm):
     grasp_cli = gvm.get_variable("grasp_client")
+    arm = gvm.get_variable("robot")[1]
+    if "objs" not in inputs:
+        self.logger.error("No objects provided")
+        return "aborted"
     objs = inputs["objs"]
     coke = objs[0]
     grasps = objs[1]
@@ -9,5 +13,5 @@ def execute(self, inputs, outputs, gvm):
         return "success"
     else:
         self.logger.warn("grasp failed")
-        grasp_cli.tuck()
+        arm.tuck()
         return "aborted"
