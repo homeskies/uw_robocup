@@ -1,7 +1,7 @@
 {
     "__jsonqualname__": "rafcon.core.states.library_state.LibraryState", 
     "input_data_port_runtime_values": {
-        "0": "shelf"
+        "0": "shelves"
     }, 
     "library_name": "go_to_named_pose", 
     "library_path": "common_states", 

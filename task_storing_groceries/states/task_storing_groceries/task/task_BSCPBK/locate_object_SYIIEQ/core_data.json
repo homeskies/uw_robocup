@@ -1,7 +1,7 @@
 {
     "__jsonqualname__": "rafcon.core.states.library_state.LibraryState", 
     "input_data_port_runtime_values": {}, 
-    "library_name": "locate_object", 
+    "library_name": "scan_for_graspable_object", 
     "library_path": "common_states", 
     "name": "locate object", 
     "outcomes": {

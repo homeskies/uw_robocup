@@ -3,7 +3,7 @@
     "input_data_port_runtime_values": {
         "0": null
     }, 
-    "library_name": "move_arm", 
+    "library_name": "pick_up_graspable_object", 
     "library_path": "common_states", 
     "name": "move arm to object", 
     "outcomes": {

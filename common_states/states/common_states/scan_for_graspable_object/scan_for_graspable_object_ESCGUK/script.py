@@ -12,10 +12,10 @@ def execute(self, inputs, outputs, gvm):
 
     self.logger.info("Selecting object...")
     grasp_cli.update_scene()
-    coke, grasps = grasp_cli.get_graspable_cube()
-    if coke is None:
+    object, grasps = grasp_cli.select_graspable_object()
+    if object is None:
         self.logger.warn("Perception failed.")
+        return "aborted"
     else:
-        outputs["objs"] = [coke, grasps]
+        outputs["objs"] = [object, grasps]
         return "success"
-    return "aborted"

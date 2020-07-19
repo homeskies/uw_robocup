@@ -5,10 +5,10 @@ def execute(self, inputs, outputs, gvm):
         self.logger.error("No objects provided")
         return "aborted"
     objs = inputs["objs"]
-    coke = objs[0]
+    object = objs[0]
     grasps = objs[1]
 
-    if grasp_cli.pick(coke, grasps):
+    if grasp_cli.pick(object, grasps):
         self.logger.info("grasp succeeded")
         return "success"
     else:
