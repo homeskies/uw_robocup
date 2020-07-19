@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+"""
+A helper that runs automatically initializes the robot and runs a given library state afterwards.
+Useful for testing out states that require robot resources that are made available in the GVM only in
+initialize_robot.
+
+rosrun common_states run_state.py <library-name> <state-name> <input-name>=<input_value>...
+"""
+import sys
+import os
+
+from rafcon.core.states.hierarchy_state import HierarchyState
+from rafcon.core.states.library_state import LibraryState
+from rafcon.core.state_machine import StateMachine
+from rafcon.core.start import setup_configuration
+
+from rafcon.utils import log
+
+logger = log.get_logger(__name__)
+
+
+def wrap_state(library_name, state_name, state_input):
+    wrapped_sm = HierarchyState(state_name + "_wrapper")
+
+    init_ros_node = LibraryState("common_states", "initialize_robot")
+    user_specified = LibraryState(library_name, state_name)
+    input_ports = user_specified.input_data_ports
+    port_name_to_id = {port.name: port_id for port_id, port in input_ports.items()}
+    for name, value in state_input.items():
+        port_id = port_name_to_id[name]
+        user_specified.set_input_runtime_value(port_id, value)
+    wrapped_sm.add_state(init_ros_node)
+    wrapped_sm.set_start_state(init_ros_node.state_id)
+    wrapped_sm.add_state(user_specified)
+    wrapped_sm.add_transition(init_ros_node.state_id, 0, user_specified.state_id, None)
+
+    return wrapped_sm
+
+
+def main():
+    setup_configuration(None)
+
+    library_name = sys.argv[1]
+    state_name = sys.argv[2]
+    args = sys.argv[3:]
+    state_input = {}
+    for arg in args:
+        key, value = arg.split("=")
+        state_input[key] = value
+    wrapped_sm = wrap_state(library_name, state_name, state_input)
+    state_machine = StateMachine(wrapped_sm)
+
+    state_machine.start()
+
+
+if __name__ == '__main__':
+    cur_path = os.path.abspath(os.path.dirname(__file__))
+    test_script_path = os.path.join(cur_path, os.pardir, os.pardir, 'test_scripts')
+    sys.path.insert(1, test_script_path)
+    main()

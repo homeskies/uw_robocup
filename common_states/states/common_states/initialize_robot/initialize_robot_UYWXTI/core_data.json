@@ -4,7 +4,35 @@
     "income": {
         "__jsonqualname__": "rafcon.core.state_elements.logical_port.Income"
     }, 
-    "input_data_ports": {}, 
+    "input_data_ports": {
+        "0": {
+            "__jsonqualname__": "rafcon.core.state_elements.data_port.InputDataPort", 
+            "data_port_id": 0, 
+            "data_type": {
+                "__type__": "__builtin__.str"
+            }, 
+            "default_value": null, 
+            "name": "node_name"
+        }, 
+        "1": {
+            "__jsonqualname__": "rafcon.core.state_elements.data_port.InputDataPort", 
+            "data_port_id": 1, 
+            "data_type": {
+                "__type__": "__builtin__.bool"
+            }, 
+            "default_value": false, 
+            "name": "use_manipulation"
+        }, 
+        "2": {
+            "__jsonqualname__": "rafcon.core.state_elements.data_port.InputDataPort", 
+            "data_port_id": 2, 
+            "data_type": {
+                "__type__": "__builtin__.str"
+            }, 
+            "default_value": "\"map\"", 
+            "name": "map_name"
+        }
+    }, 
     "name": "initialize_robot", 
     "outcomes": {
         "-2": {
