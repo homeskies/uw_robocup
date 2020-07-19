@@ -14,7 +14,7 @@
   <exec_depend>audio_common</exec_depend>
   <exec_depend>fetch_api</exec_depend>
   <exec_depend>knowledge_representation</exec_depend>
-  <exec_depend>rafcon-pip</exec_depend>
+  <exec_depend>python3-rafcon-pip</exec_depend>
   <exec_depend>rospy</exec_depend>
 
 </package>
