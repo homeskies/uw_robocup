@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   industrial_ci:
     env:
+      BEFORE_INSTALL_TARGET_DEPENDENCIES: 'sudo apt install -yq build-essential glade python-gi-cairo; sudo pip2 install rafcon' # Extra dependency for RAFCON
       AFTER_SCRIPT: 'cd $target_ws && rosenv && catkin build $(catkin_topological_order "${TARGET_REPO_PATH}" --only-names) --no-deps --no-status --verbose --make-args roslint'
       CATKIN_LINT: true
       ROS_DISTRO: melodic
