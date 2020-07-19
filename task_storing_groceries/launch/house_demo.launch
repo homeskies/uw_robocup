@@ -8,7 +8,6 @@
   <node name="basic_grasping_perception" pkg="simple_grasping" type="basic_grasping_perception" >
     <rosparam command="load" file="$(find task_storing_groceries)/config/simple_grasping.yaml" />
   </node>
-  <node name="coke_can" pkg="uw_gazebo" type="add_coke" output="screen"/>
 
   <rosparam>
     /move_base/local_costmap/inflater/inflation_radius: .3

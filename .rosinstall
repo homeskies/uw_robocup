@@ -2,9 +2,6 @@
     local-name: knowledge_representation
     uri: https://github.com/utexas-bwi/knowledge_representation.git
 - git:
-    local-name: realsense_ros
-    uri: https://github.com/IntelRealSense/realsense-ros.git
-- git:
     local-name: uw_common
     uri: https://github.com/homeskies/uw_common.git
 - git:
